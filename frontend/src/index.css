@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #07071a;
+    color: #f0f0f5;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0f0f26; }
+  ::-webkit-scrollbar-thumb { background: #2d2d54; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3c3c6b; }
+}
+
+@layer components {
+  .glass {
+    background: rgba(30, 30, 61, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(139, 92, 246, 0.12);
+  }
+  .glass-hover {
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .glass-hover:hover {
+    background: rgba(45, 45, 84, 0.7);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.08);
+  }
+  .btn-primary {
+    @apply bg-electric-600 hover:bg-electric-500 text-white font-medium px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg hover:shadow-electric-600/30 active:scale-95;
+  }
+  .btn-secondary {
+    @apply glass glass-hover text-ink-100 font-medium px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+  }
+  .input-field {
+    @apply w-full bg-ink-900 border border-ink-700 focus:border-electric-500 text-ink-50 placeholder-ink-400
+           rounded-xl px-4 py-3 outline-none transition-all duration-200 focus:ring-2 focus:ring-electric-500/20;
+  }
+  .card {
+    @apply glass rounded-2xl p-6;
+  }
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+}
+
+/* Animated gradient background */
+.bg-gradient-animated {
+  background: radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+              #07071a;
+}
+
+/* Glow effect for numbers */
+.glow-text {
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
